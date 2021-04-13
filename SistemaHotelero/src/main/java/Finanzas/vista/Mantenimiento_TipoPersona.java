@@ -59,14 +59,19 @@ public class Mantenimiento_TipoPersona extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Nombre Tipo de Persona:");
 
+        Boton_Guardar.setForeground(new java.awt.Color(0, 153, 0));
         Boton_Guardar.setText("Guardar");
 
+        Boton_Modificar.setForeground(new java.awt.Color(0, 153, 0));
         Boton_Modificar.setText("Modificar");
 
+        Boton_Eliminar.setForeground(new java.awt.Color(0, 153, 0));
         Boton_Eliminar.setText("Eliminar");
 
+        Boton_Buscar.setForeground(new java.awt.Color(0, 153, 0));
         Boton_Buscar.setText("Buscar");
 
+        Boton_Ayuda.setForeground(new java.awt.Color(0, 153, 0));
         Boton_Ayuda.setText("Ayuda");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -84,9 +89,7 @@ public class Mantenimiento_TipoPersona extends javax.swing.JInternalFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txt_NombreTipoPersona, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt_CodigoTipoPersona, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Boton_Ayuda))
+                    .addComponent(Boton_Ayuda)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(Boton_Guardar)
                         .addGap(18, 18, 18)

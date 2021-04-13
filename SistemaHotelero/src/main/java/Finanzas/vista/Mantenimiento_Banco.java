@@ -65,14 +65,19 @@ public class Mantenimiento_Banco extends javax.swing.JInternalFrame {
 
         jLabel3.setText("Clave Banco:");
 
+        Boton_Guardar.setForeground(new java.awt.Color(0, 102, 0));
         Boton_Guardar.setText("Guardar");
 
+        Boton_Modificar.setForeground(new java.awt.Color(0, 102, 0));
         Boton_Modificar.setText("Modificar");
 
+        Boton_Eliminar.setForeground(new java.awt.Color(0, 102, 0));
         Boton_Eliminar.setText("Eliminar");
 
+        Boton_Buscar.setForeground(new java.awt.Color(0, 102, 0));
         Boton_Buscar.setText("Buscar");
 
+        Boton_Ayuda.setForeground(new java.awt.Color(0, 102, 0));
         Boton_Ayuda.setText("Ayuda");
 
         jLabel4.setText("Telefono Banco:");
@@ -139,10 +144,11 @@ public class Mantenimiento_Banco extends javax.swing.JInternalFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(txt_ClaveBanco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_TelefonoBanco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Boton_Ayuda)
-                    .addComponent(jLabel4))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txt_TelefonoBanco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Boton_Ayuda)))
                 .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Boton_Guardar)
