@@ -9,6 +9,7 @@ seguridad\vista\Asignacion_modulos$9.class
 seguridad\vista\CambioC.class
 Finanzas\vista\Mantenimiento_Banco$4.class
 seguridad\dominio\Permisos.class
+Finanzas\vista\Mantenimiento_TipoPersona$5.class
 seguridad\vista\Mantenimiento_Modulos.class
 seguridad\vista\Mantenimiento_Usuario$1.class
 seguridad\datos\AplicacionDAO.class
@@ -16,6 +17,7 @@ seguridad\vista\MDI_Sistema$1.class
 seguridad\vista\Asignacion_usuario_Perfil1$5.class
 seguridad\vista\Mantenimiento_Aplicacion$5.class
 seguridad\vista\Aplicacion_Perfil$3.class
+Finanzas\vista\Mantenimiento_TipoPersona$2.class
 Hoteleria\vista\MDIHoteleria$3.class
 Finanzas\vista\Mantenimiento_Banco$1.class
 seguridad\vista\Aplicacion_Perfil$8.class
@@ -38,6 +40,7 @@ seguridad\vista\MDI_Sistema$7.class
 Hoteleria\vista\Mantenimiento_habitaciones$6.class
 seguridad\dominio\Asignacion_Aplicacion_Perfil.class
 seguridad\vista\Mantenimiento_Usuario$3.class
+Finanzas\vista\Mantenimiento_TipoPersona$3.class
 seguridad\datos\Hash.class
 seguridad\vista\MDI_Sistema$3.class
 seguridad\vista\Asignacion_usuario_Perfil1$7.class
@@ -84,6 +87,7 @@ seguridad\vista\Asignacion_usuario_Perfil1$12.class
 seguridad\vista\Aplicacion_Perfil$7.class
 seguridad\vista\Asignacion_modulos.class
 seguridad\vista\Mantenimiento_Perfil$3.class
+Finanzas\vista\Mantenimiento_TipoPersona$1.class
 seguridad\vista\Asignacion_modulos$5.class
 seguridad\vista\Asignacion_usuario_Perfil1$9.class
 seguridad\vista\MDI_Sistema$5.class
@@ -109,6 +113,7 @@ seguridad\vista\Asignacion_de_aplicacion_a_usuario$5.class
 seguridad\dominio\Asignacion.class
 seguridad\vista\Mantenimiento_Aplicacion$3.class
 Hoteleria\dominio\Ama_De_Llaves.class
+Finanzas\vista\Mantenimiento_TipoPersona$4.class
 seguridad\vista\Asignacion_usuario_Perfil1$3.class
 seguridad\vista\Aplicacion_Perfil$1.class
 Finanzas\vista\Mantenimiento_Moneda$2.class

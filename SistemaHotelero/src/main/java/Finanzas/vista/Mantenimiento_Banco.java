@@ -34,10 +34,10 @@ public class Mantenimiento_Banco extends javax.swing.JInternalFrame {
     }
   public void buscarbanco(){    ///metodo para buscar un perfil ingresado y guardado a la base de datos
     Banco bancoconsultar = new Banco();
-    BancoDAO perfilDAO = new BancoDAO();
+    BancoDAO bancoDAO = new BancoDAO();
     bancoconsultar.setCodigo_Banco((txt_Buscar.getText().toString()));
     //-------------------------------------------------------------------
-    bancoconsultar = perfilDAO.query(bancoconsultar);
+    bancoconsultar = bancoDAO.query(bancoconsultar);
     txt_CodigoBanco.setText((bancoconsultar.getCodigo_Banco()));
     txt_NombreBanco.setText(bancoconsultar.getNombre_Banco());
     txt_ClaveBanco.setText(bancoconsultar.getClave_Banco());

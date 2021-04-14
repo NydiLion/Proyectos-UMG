@@ -33,10 +33,10 @@ public class Mantenimiento_Moneda extends javax.swing.JInternalFrame {
     }
   public void buscarmoneda(){    ///metodo para buscar moneda ingresada y guardada a la base de datos
     Moneda monedaconsultar = new Moneda();
-    MonedaDAO perfilDAO = new MonedaDAO();
+    MonedaDAO monedaDAO = new MonedaDAO();
     monedaconsultar.setCodigo_Moneda((txt_Buscar.getText().toString()));
     //-------------------------------------------------------------------
-    monedaconsultar = perfilDAO.query(monedaconsultar);
+    monedaconsultar = monedaDAO.query(monedaconsultar);
     txt_CodigoMoneda.setText((monedaconsultar.getCodigo_Moneda()));
     txt_NombreMoneda.setText(monedaconsultar.getNombre_Moneda());
     txt_SimboloMoneda.setText(monedaconsultar.getSimbolo_Moneda());  
