@@ -1,10 +1,12 @@
 seguridad\vista\Asignacion_usuario_Perfil1$2.class
 Hoteleria\vista\Mantenimiento_Ama_De_Llaves$3.class
+Finanzas\datos\MonedaDAO.class
 Comercial\vista\MDIComercial$1.class
 seguridad\dominio\Aplicacion.class
 seguridad\vista\Mantenimiento_Aplicacion$2.class
 seguridad\vista\Asignacion_modulos$9.class
 seguridad\vista\CambioC.class
+Finanzas\vista\Mantenimiento_Banco$4.class
 seguridad\dominio\Permisos.class
 seguridad\vista\Mantenimiento_Modulos.class
 seguridad\vista\Mantenimiento_Usuario$1.class
@@ -14,6 +16,7 @@ seguridad\vista\Asignacion_usuario_Perfil1$5.class
 seguridad\vista\Mantenimiento_Aplicacion$5.class
 seguridad\vista\Aplicacion_Perfil$3.class
 Hoteleria\vista\MDIHoteleria$3.class
+Finanzas\vista\Mantenimiento_Banco$1.class
 seguridad\vista\Aplicacion_Perfil$8.class
 Hoteleria\vista\Mantenimiento_habitaciones$9.class
 seguridad\vista\MDI_Sistema$4.class
@@ -37,6 +40,7 @@ seguridad\vista\Mantenimiento_Usuario$3.class
 seguridad\datos\Hash.class
 seguridad\vista\MDI_Sistema$3.class
 seguridad\vista\Asignacion_usuario_Perfil1$7.class
+Finanzas\dominio\Banco.class
 seguridad\vista\Mantenimiento_Perfil$1.class
 Hoteleria\vista\Mantenimiento_Ama_De_Llaves$5.class
 Finanzas\vista\MDIFinanzas$2.class
@@ -72,6 +76,7 @@ Hoteleria\vista\Mantenimiento_habitaciones$1.class
 seguridad\datos\Conexion.class
 seguridad\vista\Mantenimiento_Aplicacion$4.class
 seguridad\vista\Mantenimiento_Aplicacion$9.class
+Finanzas\dominio\TipoPersona.class
 Finanzas\dominio\CalculoIVA.class
 seguridad\datos\PerfilDAO.class
 seguridad\vista\Asignacion_usuario_Perfil1$12.class
@@ -88,6 +93,7 @@ Hoteleria\vista\MDIHoteleria.class
 seguridad\vista\MDI_Components.class
 Hoteleria\vista\Mantenimiento_Ama_De_Llaves$7.class
 Hoteleria\vista\Mantenimiento_habitaciones$5.class
+Finanzas\dominio\Moneda.class
 seguridad\vista\Asignacion_de_aplicacion_a_usuario$2.class
 seguridad\vista\Asignacion_modulos$8.class
 seguridad\vista\MDI_Sistema$8.class
@@ -109,6 +115,7 @@ seguridad\datos\ModulosDAO.class
 seguridad\vista\Login.class
 Hoteleria\vista\MDIHoteleria$2.class
 seguridad\vista\Asignacion_modulos$2.class
+Finanzas\vista\Mantenimiento_Banco$5.class
 seguridad\vista\Aplicacion_Perfil$4.class
 seguridad\vista\Mantenimiento_Usuario$2.class
 seguridad\vista\Asignacion_usuario_Perfil1$6.class
@@ -120,6 +127,7 @@ seguridad\dominio\Perfil.class
 seguridad\vista\Aplicacion_Perfil$9.class
 Hoteleria\datos\HabitacionesDAO.class
 seguridad\vista\Asignacion_de_aplicacion_a_usuario.class
+Finanzas\vista\Mantenimiento_Banco$2.class
 Finanzas\vista\Mantenimiento_Moneda.class
 Hoteleria\vista\Mantenimiento_Ama_De_Llaves$8.class
 seguridad\vista\Asignacion_usuario_Perfil1$4.class
@@ -143,6 +151,7 @@ seguridad\vista\Asignacion_modulos$1.class
 seguridad\vista\Login$2.class
 Hoteleria\vista\Mantenimiento_habitaciones$4.class
 seguridad\vista\Mantenimiento_Aplicacion$1.class
+Finanzas\vista\Mantenimiento_Banco$3.class
 Finanzas\vista\Mantenimiento_Banco.class
 seguridad\vista\Asignacion_de_aplicacion_a_usuario$3.class
 seguridad\vista\Mantenimiento_Perfil.class
@@ -150,8 +159,10 @@ Hoteleria\vista\MDIHoteleria$1.class
 seguridad\vista\Mantenimiento_Modulos$1.class
 seguridad\vista\Mantenimiento_Perfil$5.class
 Hoteleria\dominio\Habitaciones.class
+Finanzas\datos\TipoPersonaDAO.class
 seguridad\vista\Mantenimiento_Aplicacion$7.class
 Hoteleria\vista\Mantenimiento_Ama_De_Llaves$1.class
+Finanzas\datos\BancoDAO.class
 seguridad\dominio\Asignacion_Aplicacion_Usuario.class
 Finanzas\datos\Conexion.class
 seguridad\vista\Asignacion_de_aplicacion_a_usuario$9.class
