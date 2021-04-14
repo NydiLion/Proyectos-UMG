@@ -31,10 +31,6 @@ public class Mantenimiento_Banco extends javax.swing.JInternalFrame {
         txt_ClaveBanco.setText("");
         txt_TelefonoBanco.setText("");
         txt_Buscar.setText("");
-                  //this.Codigo_Banco = Codigo_Banco;
-  //this.Nombre_Banco = Nombre_Banco;
-  //this.Clave_Banco = Clave_Banco;
-   //this.Telefono_Banco = Telefono_Banco;
     }
   public void buscarbanco(){    ///metodo para buscar un perfil ingresado y guardado a la base de datos
     Banco bancoconsultar = new Banco();
@@ -107,7 +103,7 @@ public class Mantenimiento_Banco extends javax.swing.JInternalFrame {
 
         jLabel3.setText("Clave Banco:");
 
-        Boton_Guardar.setForeground(new java.awt.Color(0, 102, 0));
+        Boton_Guardar.setForeground(new java.awt.Color(0, 204, 204));
         Boton_Guardar.setText("Guardar");
         Boton_Guardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,7 +111,7 @@ public class Mantenimiento_Banco extends javax.swing.JInternalFrame {
             }
         });
 
-        Boton_Modificar.setForeground(new java.awt.Color(0, 102, 0));
+        Boton_Modificar.setForeground(new java.awt.Color(0, 204, 204));
         Boton_Modificar.setText("Modificar");
         Boton_Modificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,7 +119,7 @@ public class Mantenimiento_Banco extends javax.swing.JInternalFrame {
             }
         });
 
-        Boton_Eliminar.setForeground(new java.awt.Color(0, 102, 0));
+        Boton_Eliminar.setForeground(new java.awt.Color(0, 204, 204));
         Boton_Eliminar.setText("Eliminar");
         Boton_Eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,7 +127,7 @@ public class Mantenimiento_Banco extends javax.swing.JInternalFrame {
             }
         });
 
-        Boton_Buscar.setForeground(new java.awt.Color(0, 102, 0));
+        Boton_Buscar.setForeground(new java.awt.Color(0, 204, 204));
         Boton_Buscar.setText("Buscar");
         Boton_Buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -139,7 +135,7 @@ public class Mantenimiento_Banco extends javax.swing.JInternalFrame {
             }
         });
 
-        Boton_Ayuda.setForeground(new java.awt.Color(0, 102, 0));
+        Boton_Ayuda.setForeground(new java.awt.Color(0, 204, 204));
         Boton_Ayuda.setText("Ayuda");
         Boton_Ayuda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -297,7 +293,7 @@ public class Mantenimiento_Banco extends javax.swing.JInternalFrame {
     private void Boton_ModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_ModificarActionPerformed
         BancoDAO bancoDAO = new BancoDAO();
         Banco bancosModificar = new Banco();
-        //perfil modificar
+        //BANCO modificar
         bancosModificar.setCodigo_Banco(txt_CodigoBanco.getText());
         bancosModificar.setNombre_Banco(txt_NombreBanco.getText());
         bancosModificar.setClave_Banco(txt_ClaveBanco.getText()); 
@@ -320,11 +316,11 @@ public class Mantenimiento_Banco extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_Boton_EliminarActionPerformed
 
     private void Boton_BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_BuscarActionPerformed
-         buscarbanco();    //metodo que busca el perfil ingresado en la base de datos
+         buscarbanco();    //metodo que busca el BANCO ingresado en la base de datos
     }//GEN-LAST:event_Boton_BuscarActionPerformed
 
     private void Boton_AyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_AyudaActionPerformed
-        /// metodo para ejecutar la ayuda que es una guia para el mantenimiento perfil
+        /// metodo para ejecutar la ayuda que es una guia para el mantenimiento BANCO
         try {
             if ((new File("src\\main\\java\\seguridad\\ayuda\\AyudaMantenimientoPerfil.chm")).exists()) {
                 Process p = Runtime
