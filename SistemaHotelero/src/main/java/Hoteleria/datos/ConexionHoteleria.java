@@ -1,14 +1,14 @@
-package Finanzas.datos;
-import java.sql.*;
-//CONEXION
-/*
-    @author Diego Vásquez
-*/
+package Hoteleria.datos;
 
-public class Conexion {
-    private static final String JDBC_URL = "jdbc:mysql://localhost/finanzas?useSSL=false&serverTimezone=UTC";
+import java.sql.*;
+
+public class ConexionHoteleria {
+
+    // Estas constantes deben cambiarse temporalmente para probarlo localmente
+
+    private static final String JDBC_URL = "jdbc:mysql://localhost/hoteleria?useSSL=false&serverTimezone=UTC";
     private static final String JDBC_USER = "root";
-    private static final String JDBC_PASS = "12345";
+    private static final String JDBC_PASS = "";
 
 
     public static Connection getConnection() throws SQLException {
@@ -38,4 +38,5 @@ public class Conexion {
            ex.printStackTrace(System.out);
         }
     }
+    
 }

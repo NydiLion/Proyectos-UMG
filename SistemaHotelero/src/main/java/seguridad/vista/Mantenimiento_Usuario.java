@@ -5,7 +5,6 @@
  */
 package seguridad.vista;
 
-
 import java.io.File;
 import java.util.Objects;
 import java.util.Date;
@@ -21,14 +20,13 @@ import seguridad.datos.UsuarioDAO;
 import seguridad.datos.Hash;
 import static seguridad.datos.Hash.getHash;
 
-
-
 /**
  *
  * @author OtakuGT
  */
 public class Mantenimiento_Usuario extends javax.swing.JInternalFrame {
-public void llenadoDeTablas() {
+
+    public void llenadoDeTablas() {
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("ID");
         modelo.addColumn("Nombre");
@@ -54,18 +52,52 @@ public void llenadoDeTablas() {
             objeto[7] = usuarios.get(i).getEstado_usuario();
             objeto[8] = usuarios.get(i).getUltima_conexion();
 
-            
             modelo.addRow(objeto);
         }
     }
+
     /**
      * Creates new form FrmCrudUsuarios
      */
-    public Mantenimiento_Usuario() {
-             initComponents();
-             llenadoDeTablas();
+    
+    int CodigoAplicacion = 10;
+    
+    void habilitarAcciones() {
+        
+        BtnIng.setEnabled(false);
+        BtnMod.setEnabled(false);
+        BtnElim.setEnabled(false);
+        BtnBus.setEnabled(false);
+        
+        GenerarPermisos permisos = new GenerarPermisos();
+        
+        String[] permisosApp = new String[5];
+
+        for (int i = 0; i < 5; i++) {
+            permisosApp[i] = permisos.getAccionesAplicacion(CodigoAplicacion, "carloscastillo1")[i];
+        }
+        
+        if(permisosApp[0].equals("1")){
+            BtnIng.setEnabled(true);
+        }
+        if(permisosApp[1].equals("1")){
+            BtnBus.setEnabled(true);
+        }
+        if(permisosApp[2].equals("1")){
+            BtnMod.setEnabled(true);
+        }
+        if(permisosApp[3].equals("1")){
+            BtnElim.setEnabled(true);
+        }
     }
- public void limpiar() {
+
+    public Mantenimiento_Usuario() {
+        initComponents();
+        habilitarAcciones();
+        llenadoDeTablas();
+    }
+
+    public void limpiar() {
         txtID.setText("");
         txtNom.setText("");
         txtApe.setText("");
@@ -77,7 +109,7 @@ public void llenadoDeTablas() {
         RBEU1.setSelected(false);
         RBEU0.setSelected(false);
     }
- 
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -369,14 +401,14 @@ public void llenadoDeTablas() {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    String last_session=null;
+    String last_session = null;
     Date date = new Date();
     DateFormat fechaHora = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     private void BtnBusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBusActionPerformed
         Usuario usuarioBuscar = new Usuario();
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         String ID = txtID.getText();
-        int IntID=Integer.parseInt(ID);  
+        int IntID = Integer.parseInt(ID);
         usuarioBuscar.setId_usuario(IntID);
 
         usuarioBuscar = usuarioDAO.query(usuarioBuscar);
@@ -388,7 +420,6 @@ public void llenadoDeTablas() {
         txtPass.setText(String.valueOf(usuarioBuscar.getPassword_usuario()));
         txtCorreo.setText(String.valueOf(usuarioBuscar.getCorreo_usuario()));
 
-        
         if (usuarioBuscar.getEstado_usuario() == 1) {
             RBCC1.setSelected(true);
         }
@@ -412,7 +443,7 @@ public void llenadoDeTablas() {
         UsuarioDAO usuarioDAO = new UsuarioDAO();
 
         String ID = txtID.getText();
-        int IntID=Integer.parseInt(ID);  
+        int IntID = Integer.parseInt(ID);
         usuarioEliminar.setId_usuario(IntID);
         usuarioDAO.delete(usuarioEliminar);
         JOptionPane.showMessageDialog(null, "Usuario Eliminado.");
@@ -424,7 +455,7 @@ public void llenadoDeTablas() {
         Usuario usuarioMod = new Usuario();
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         String ID = txtID.getText();
-        int IntID=Integer.parseInt(ID);  
+        int IntID = Integer.parseInt(ID);
         String pass = txtPass.getText();
         String nuevoPass = Hash.sha1(pass);
         usuarioMod.setId_usuario(IntID);
@@ -433,7 +464,7 @@ public void llenadoDeTablas() {
         usuarioMod.setUser_usuario(txtUsuario.getText());
         usuarioMod.setPassword_usuario(nuevoPass);
         usuarioMod.setCorreo_usuario(txtCorreo.getText());
-        
+
         if (RBCC1.isSelected()) {
             usuarioMod.setCambio_password(1);
         }
@@ -456,14 +487,14 @@ public void llenadoDeTablas() {
 
         Usuario usuarioInsertar = new Usuario();
         UsuarioDAO usuarioDAO = new UsuarioDAO();
-        
+
         String pass = txtPass.getText();
         if (txtID.getText().length() != 0 && txtNom.getText().length() != 0
-            && txtApe.getText().length() != 0 && txtPass.getText().length() != 0 && RBCC1.isSelected() ||
-            RBCC0.isSelected() && RBEU1.isSelected() || RBEU0.isSelected())  {
-            {   
+                && txtApe.getText().length() != 0 && txtPass.getText().length() != 0 && RBCC1.isSelected()
+                || RBCC0.isSelected() && RBEU1.isSelected() || RBEU0.isSelected()) {
+            {
                 String ID = txtID.getText();
-                int IntID=Integer.parseInt(ID);  
+                int IntID = Integer.parseInt(ID);
                 String nuevoPass = Hash.sha1(pass);
                 usuarioInsertar.setId_usuario(IntID);
                 usuarioInsertar.setNombre_usuario(txtNom.getText());
@@ -503,7 +534,7 @@ public void llenadoDeTablas() {
     }//GEN-LAST:event_RBCC0ActionPerformed
 
     private void BtnAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAyudaActionPerformed
- try {
+        try {
             if ((new File("src\\main\\java\\seguridad\\ayuda\\AyudaMantenimientoUsuarios.chm")).exists()) {
                 Process p = Runtime
                         .getRuntime()
@@ -517,7 +548,7 @@ public void llenadoDeTablas() {
             ex.printStackTrace();
         }
     }//GEN-LAST:event_BtnAyudaActionPerformed
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnAyuda;

@@ -23,6 +23,7 @@ import seguridad.dominio.Asignacion_Aplicacion_Perfil;
 import seguridad.dominio.Usuario;
 import static seguridad.vista.Aplicacion_Perfil.tabla1;
 import static seguridad.vista.Asignacion_de_aplicacion_a_usuario.tabla1;
+
 /**
  *
  * @author gegmo
@@ -30,39 +31,43 @@ import static seguridad.vista.Asignacion_de_aplicacion_a_usuario.tabla1;
 public class Asignacion_de_aplicacion_a_usuario extends javax.swing.JInternalFrame {
 
     DefaultTableModel modelo1;
-    DefaultTableModel modelo2; 
-        int estadovalidacion;
+    DefaultTableModel modelo2;
+    int estadovalidacion;
+
     /**
      * Creates new form Asignacion_de_aplicacion_a_usuario2
      */
     public Asignacion_de_aplicacion_a_usuario() {
         initComponents();
+        int codigoAsignacionDeAplicacionaUsuario=105;
+        
         Asignacion_Aplicacion_UsuarioDAO personaDAO = new Asignacion_Aplicacion_UsuarioDAO();
         List<Usuario> perfiles = personaDAO.select2();
-       for (Usuario persona : perfiles) {
+        for (Usuario persona : perfiles) {
             consulta_usuario.addItem(String.valueOf(persona.getId_usuario()));
         }
         /////////////////////
-        modelo1=new DefaultTableModel();   //ASIGNAMOS UN NUEVO DEFAULTABLEMODEL AL OBJETO MODELO1
+        modelo1 = new DefaultTableModel();   //ASIGNAMOS UN NUEVO DEFAULTABLEMODEL AL OBJETO MODELO1
         modelo1.addColumn("CODIGO");      //LE AÑADIMOS COLUMNAS AL OBJETO MODELO
         modelo1.addColumn("NOMBRE");
         tabla1.setModel(modelo1);
-        String datos[]= new String[2];
-        AplicacionDAO dao = new  AplicacionDAO();
+        String datos[] = new String[2];
+        AplicacionDAO dao = new AplicacionDAO();
         List<Aplicacion> personas = dao.select2();
-        for (Aplicacion persona : personas) {       
-               
-               datos[0]=String.valueOf(persona.getId_Aplicacion());
-               datos[1]=persona.getNombre_Aplicacion();
-               
-                modelo1.addRow(datos);
-        tabla1.setModel(modelo1);
-                        
-        } 
-        
+        for (Aplicacion persona : personas) {
+
+            datos[0] = String.valueOf(persona.getId_Aplicacion());
+            datos[1] = persona.getNombre_Aplicacion();
+
+            modelo1.addRow(datos);
+            tabla1.setModel(modelo1);
+
+        }
+
     }
-    public void LimpiarTabla2(){
-        modelo2=new DefaultTableModel();   //ASIGNAMOS UN NUEVO DEFAULTABLEMODEL AL OBJETO MODELO1
+
+    public void LimpiarTabla2() {
+        modelo2 = new DefaultTableModel();   //ASIGNAMOS UN NUEVO DEFAULTABLEMODEL AL OBJETO MODELO1
         modelo2.addColumn("ID Usuario");
         modelo2.addColumn("ID APLICACION");
         modelo2.addColumn("INGRESAR");
@@ -71,7 +76,8 @@ public class Asignacion_de_aplicacion_a_usuario extends javax.swing.JInternalFra
         modelo2.addColumn("ELIMINAR");
         modelo2.addColumn("IMPRIMIR");
         tabla2.setModel(modelo2);         //LE SETEAMOS EL OBJETO MODELO1 (TABLEMODEL) A LA TABLA (JTABLE) 
-    } 
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -92,12 +98,13 @@ public class Asignacion_de_aplicacion_a_usuario extends javax.swing.JInternalFra
         jButton2 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
         btn_Buscar = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        btnModificar = new javax.swing.JButton();
 
         setClosable(true);
         setMaximizable(true);
@@ -160,10 +167,10 @@ public class Asignacion_de_aplicacion_a_usuario extends javax.swing.JInternalFra
 
         jLabel4.setText("Guardar");
 
-        jButton5.setText("G");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btnGuardar.setText("G");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btnGuardarActionPerformed(evt);
             }
         });
 
@@ -202,6 +209,13 @@ public class Asignacion_de_aplicacion_a_usuario extends javax.swing.JInternalFra
             }
         });
 
+        btnModificar.setText("Editar");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -229,7 +243,7 @@ public class Asignacion_de_aplicacion_a_usuario extends javax.swing.JInternalFra
                                             .addGroup(layout.createSequentialGroup()
                                                 .addGap(10, 10, 10)
                                                 .addComponent(jLabel4))
-                                            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                            .addComponent(btnGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(28, 28, 28)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -252,6 +266,10 @@ public class Asignacion_de_aplicacion_a_usuario extends javax.swing.JInternalFra
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
                         .addComponent(jButton4)
                         .addGap(69, 69, 69))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(227, 227, 227)
+                .addComponent(btnModificar)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -264,7 +282,9 @@ public class Asignacion_de_aplicacion_a_usuario extends javax.swing.JInternalFra
                     .addComponent(txt_Nombre_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_Buscar)
                     .addComponent(jButton4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(btnModificar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
@@ -282,7 +302,7 @@ public class Asignacion_de_aplicacion_a_usuario extends javax.swing.JInternalFra
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton5))
+                        .addComponent(btnGuardar))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
         );
 
@@ -299,109 +319,108 @@ public class Asignacion_de_aplicacion_a_usuario extends javax.swing.JInternalFra
 
     private void btn_BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_BuscarActionPerformed
         LimpiarTabla2();
-        String valor=consulta_usuario.getSelectedItem().toString();
+        String valor = consulta_usuario.getSelectedItem().toString();
         Asignacion_Aplicacion_UsuarioDAO usuarioDAO = new Asignacion_Aplicacion_UsuarioDAO();
         Usuario usuarioconsulta = new Usuario();
         usuarioconsulta.setId_usuario(Integer.parseInt(valor));
-        usuarioconsulta=usuarioDAO.query(usuarioconsulta);
+        usuarioconsulta = usuarioDAO.query(usuarioconsulta);
         txt_Nombre_usuario.setText(usuarioconsulta.getNombre_usuario());
-        
-        String combobox=consulta_usuario.getSelectedItem().toString();
-        int validar=Integer.parseInt(combobox);
-        String datos[]= new String[7];
-        Asignacion_Aplicacion_UsuarioDAO dao = new  Asignacion_Aplicacion_UsuarioDAO();
+
+        String combobox = consulta_usuario.getSelectedItem().toString();
+        int validar = Integer.parseInt(combobox);
+        String datos[] = new String[7];
+        Asignacion_Aplicacion_UsuarioDAO dao = new Asignacion_Aplicacion_UsuarioDAO();
         List<Asignacion_Aplicacion_Usuario> personas = dao.select();
-        for (Asignacion_Aplicacion_Usuario persona : personas) {       
-            if (validar==Integer.parseInt(persona.getCodigo_Usuario())) {
-               
-               datos[0]=persona.getCodigo_Usuario();
-               datos[1]=persona.getCodigo_Aplicacion();
-               datos[2]=persona.getImprimir();
-               datos[3]=persona.getModificar();
-               datos[4]=persona.getEliminar();
-               datos[5]=persona.getIngresar();
-               datos[6]=persona.getConsultar();
-               
+        for (Asignacion_Aplicacion_Usuario persona : personas) {
+            if (validar == Integer.parseInt(persona.getCodigo_Usuario())) {
+
+                datos[0] = persona.getCodigo_Usuario();
+                datos[1] = persona.getCodigo_Aplicacion();
+                datos[2] = String.valueOf(persona.getIngresar());
+                datos[3] = persona.getConsultar();
+                datos[4] = persona.getModificar();
+                datos[5] = persona.getEliminar();
+                datos[6] = persona.getImprimir();
+
                 modelo2.addRow(datos);
-        tabla2.setModel(modelo2);
-            }            
+                tabla2.setModel(modelo2);
+            }
         }
     }//GEN-LAST:event_btn_BuscarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-for (int i = 0; i < tabla1.getRowCount(); i++) {
-            String Vector[]=new String[2];
-            
-            Vector[0]=consulta_usuario.getSelectedItem().toString();
-            Vector[1]=tabla1.getValueAt(i, 0).toString();
-            
+        for (int i = 0; i < tabla1.getRowCount(); i++) {
+            String Vector[] = new String[2];
+
+            Vector[0] = consulta_usuario.getSelectedItem().toString();
+            Vector[1] = tabla1.getValueAt(i, 0).toString();
+
             modelo2.addRow(Vector);    //LLAMAMOS AL MODELO DE LA PANTALLA2 Y LE AGREGAMOS EL VECTOR COMO UNA NUEVA FILA
-            
+
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
 
         Asignacion_Aplicacion_UsuarioDAO modulosDAO = new Asignacion_Aplicacion_UsuarioDAO();
-        String Vector[]=new String[7];
-            Asignacion_Aplicacion_Usuario moduloInsertar = new Asignacion_Aplicacion_Usuario();
-            for (int i = 0; i < tabla2.getRowCount(); i++) {
-             
-           
-           Vector[0]=(String) tabla2.getValueAt(i, 0);
-           Vector[1]=(String) tabla2.getValueAt(i, 1);
-           Vector[2]=(String) tabla2.getValueAt(i, 2);
-           Vector[3]=(String) tabla2.getValueAt(i, 3);
-           Vector[4]=(String) tabla2.getValueAt(i, 4);
-           Vector[5]=(String) tabla2.getValueAt(i, 5);
-           Vector[6]=(String) tabla2.getValueAt(i, 6);
-            
-            moduloInsertar.setCodigo_Usuario(Vector[0]);           
+        String Vector[] = new String[7];
+        Asignacion_Aplicacion_Usuario moduloInsertar = new Asignacion_Aplicacion_Usuario();
+        for (int i = 0; i < tabla2.getRowCount(); i++) {
+
+            Vector[0] = (String) tabla2.getValueAt(i, 0);
+            Vector[1] = (String) tabla2.getValueAt(i, 1);
+            Vector[2] = (String) tabla2.getValueAt(i, 2);
+            Vector[3] = (String) tabla2.getValueAt(i, 3);
+            Vector[4] = (String) tabla2.getValueAt(i, 4);
+            Vector[5] = (String) tabla2.getValueAt(i, 5);
+            Vector[6] = (String) tabla2.getValueAt(i, 6);
+
+            moduloInsertar.setCodigo_Usuario(Vector[0]);
             moduloInsertar.setCodigo_Aplicacion(Vector[1]);
-            moduloInsertar.setIngresar(Vector[2]);
+            moduloInsertar.setIngresar(Integer.parseInt(Vector[2]));
             moduloInsertar.setConsultar(Vector[3]);
             moduloInsertar.setModificar(Vector[4]);
             moduloInsertar.setEliminar(Vector[5]);
-            moduloInsertar.setImprimir(Vector[6]);
-            
-            modulosDAO.insert(moduloInsertar);   
+            moduloInsertar.setImprimir(Vector[5]);
+
+            modulosDAO.insert(moduloInsertar);
         }
-            
-            JOptionPane.showMessageDialog(null, "Modulo registrado correctamente");
-    }//GEN-LAST:event_jButton5ActionPerformed
+
+        JOptionPane.showMessageDialog(null, "Modulo registrado correctamente");
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-int filaSeleccionada=tabla1.getSelectedRow();  //LE ASIGNAMOS UNA VARIABLE INTEGER A LA FILA SELECCIONADA EN LA TABLA
-        if (1==1) {
-        if(filaSeleccionada>=0){   //SI EXISTE UNA FILA SELECCIONADA REALIZARA EL TRASPASO
-            
-               String Vector[]=new String[2];   
-                
-               Vector[0]=consulta_usuario.getSelectedItem().toString();
-               Vector[1]=tabla1.getValueAt(filaSeleccionada, 0).toString();
-               modelo2.addRow(Vector); 
-               
-        }    
+        int filaSeleccionada = tabla1.getSelectedRow();  //LE ASIGNAMOS UNA VARIABLE INTEGER A LA FILA SELECCIONADA EN LA TABLA
+        if (1 == 1) {
+            if (filaSeleccionada >= 0) {   //SI EXISTE UNA FILA SELECCIONADA REALIZARA EL TRASPASO
+
+                String Vector[] = new String[2];
+
+                Vector[0] = consulta_usuario.getSelectedItem().toString();
+                Vector[1] = tabla1.getValueAt(filaSeleccionada, 0).toString();
+                modelo2.addRow(Vector);
+
+            }
         }
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-int filaSeleccionada=tabla2.getSelectedRow();  //LE ASIGNAMOS UNA VARIABLE INTEGER A LA FILA SELECCIONADA EN LA TABLA
-        
-        if(filaSeleccionada>=0){   //SI EXISTE UNA FILA SELECCIONADA REALIZARA EL TRASPASO
-            
-               String Vector[]=new String[2];   //CREAR UN VECTOR
-                //LE ASIGNAMOS AL VECTOR Y CAPTURAMOS LOS DATOS DE LA TABLA1 EN LA FILA SELECCIONADA EN LA POSICION 0 Y 1,
-                //ES DECIR COLUMNA NOMBRES Y APELLIDOS
-               Vector[0]=tabla2.getValueAt(filaSeleccionada, 0).toString();    
-               Vector[1]=tabla2.getValueAt(filaSeleccionada, 1).toString();
-               
-               modelo2.removeRow(filaSeleccionada);  //ELIMINAMOS LA FILA TRASPASADA DE LA PANTALLA1
+        int filaSeleccionada = tabla2.getSelectedRow();  //LE ASIGNAMOS UNA VARIABLE INTEGER A LA FILA SELECCIONADA EN LA TABLA
+
+        if (filaSeleccionada >= 0) {   //SI EXISTE UNA FILA SELECCIONADA REALIZARA EL TRASPASO
+
+            String Vector[] = new String[2];   //CREAR UN VECTOR
+            //LE ASIGNAMOS AL VECTOR Y CAPTURAMOS LOS DATOS DE LA TABLA1 EN LA FILA SELECCIONADA EN LA POSICION 0 Y 1,
+            //ES DECIR COLUMNA NOMBRES Y APELLIDOS
+            Vector[0] = tabla2.getValueAt(filaSeleccionada, 0).toString();
+            Vector[1] = tabla2.getValueAt(filaSeleccionada, 1).toString();
+
+            modelo2.removeRow(filaSeleccionada);  //ELIMINAMOS LA FILA TRASPASADA DE LA PANTALLA1
         }        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-    LimpiarTabla2();        // TODO add your handling code here:
+        LimpiarTabla2();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -421,15 +440,47 @@ int filaSeleccionada=tabla2.getSelectedRow();  //LE ASIGNAMOS UNA VARIABLE INTEG
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+
+        String Vector[] = new String[7];
+
+        for (int i = 0; i < tabla2.getRowCount(); i++) {
+
+            Asignacion_Aplicacion_UsuarioDAO modulosDAO = new Asignacion_Aplicacion_UsuarioDAO();
+            Asignacion_Aplicacion_Usuario moduloModificar = new Asignacion_Aplicacion_Usuario();
+            Vector[0] = (String) tabla2.getValueAt(i, 0);
+            Vector[1] = (String) tabla2.getValueAt(i, 1);
+            Vector[2] = (String) tabla2.getValueAt(i, 2);
+            Vector[3] = (String) tabla2.getValueAt(i, 3);
+            Vector[4] = (String) tabla2.getValueAt(i, 4);
+            Vector[5] = (String) tabla2.getValueAt(i, 5);
+            Vector[6] = (String) tabla2.getValueAt(i, 6);
+
+            moduloModificar.setCodigo_Usuario(Vector[0]);
+            moduloModificar.setCodigo_Aplicacion(Vector[1]);
+            moduloModificar.setIngresar(Integer.parseInt(Vector[2]));
+            moduloModificar.setConsultar(Vector[3]);
+            moduloModificar.setModificar(Vector[4]);
+            moduloModificar.setEliminar(Vector[5]);
+            moduloModificar.setImprimir(Vector[5]);
+
+            JOptionPane.showMessageDialog(null, "Modulo modificado correctamente");
+            modulosDAO.update(moduloModificar);
+
+        }
+
+    }//GEN-LAST:event_btnModificarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnModificar;
     private javax.swing.JButton btn_Buscar;
     private javax.swing.JComboBox<String> consulta_usuario;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

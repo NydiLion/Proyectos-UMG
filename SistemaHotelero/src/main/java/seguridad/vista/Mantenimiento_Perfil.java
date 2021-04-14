@@ -22,9 +22,10 @@ public class Mantenimiento_Perfil extends javax.swing.JInternalFrame {
      * Creates new form Mantenimiento_Perfil
      */
     public Mantenimiento_Perfil() {
+        int CodigoAplicacion = 30;    //metodo para generar permisos
         initComponents();
-        llenadodetablas();
-        RadiosGrupo = new ButtonGroup();
+        llenadodetablas();    // metodo para el llenado de la tabla con los datos automaticamente
+        RadiosGrupo = new ButtonGroup();   // metodo de radio buton que es el grupo de radios que se utilizan en el estado Perfil
         RadiosGrupo.add(RBEP1);
         RadiosGrupo.add(RBEP0);
         RadiosGrupo.add(RBEPvacio);
@@ -32,7 +33,7 @@ public class Mantenimiento_Perfil extends javax.swing.JInternalFrame {
     }
         
         
-public void limpiar() {
+public void limpiar() {   //metodo de Limpiar automaticamente las cajas de textos y radio boton
         txt_IdPerfil.setText("");
         txt_NombreP.setText("");
         txt_DescPerfil.setText("");
@@ -40,7 +41,7 @@ public void limpiar() {
         RBEP0.setSelected(false);
         Txtbuscar.setText("");
     }
-public void buscarperfil(){
+public void buscarperfil(){    ///metodo para buscar un perfil ingresado y guardado a la base de datos
     Perfil perfilconsultar = new Perfil();
     PerfilDAO perfilDAO = new PerfilDAO();
     perfilconsultar.setPk_id_perfil((int)Integer.parseInt(Txtbuscar.getText().toString()));
@@ -64,7 +65,7 @@ public void buscarperfil(){
         } 
 }
 
-public void llenadodetablas(){
+public void llenadodetablas(){   // metodo de llenado de tablas automaticamente aparecen los datos guardados en bd y se despliega en automatico
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("Id Perfil");
         modelo.addColumn("Nombre Perfil");
@@ -168,7 +169,7 @@ public void llenadodetablas(){
 
         btnBuscar.setBackground(new java.awt.Color(204, 204, 204));
         btnBuscar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnBuscar.setForeground(new java.awt.Color(102, 102, 102));
+        btnBuscar.setForeground(new java.awt.Color(0, 0, 102));
         btnBuscar.setText("Buscar");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -178,7 +179,7 @@ public void llenadodetablas(){
 
         btnEliminar.setBackground(new java.awt.Color(204, 204, 204));
         btnEliminar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnEliminar.setForeground(new java.awt.Color(102, 102, 102));
+        btnEliminar.setForeground(new java.awt.Color(0, 0, 102));
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -188,7 +189,7 @@ public void llenadodetablas(){
 
         btnModificar.setBackground(new java.awt.Color(204, 204, 204));
         btnModificar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnModificar.setForeground(new java.awt.Color(102, 102, 102));
+        btnModificar.setForeground(new java.awt.Color(0, 0, 102));
         btnModificar.setText("Modificar");
         btnModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -198,7 +199,7 @@ public void llenadodetablas(){
 
         btnGuardar.setBackground(new java.awt.Color(204, 204, 204));
         btnGuardar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnGuardar.setForeground(new java.awt.Color(102, 102, 102));
+        btnGuardar.setForeground(new java.awt.Color(0, 0, 102));
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -207,7 +208,7 @@ public void llenadodetablas(){
         });
 
         btnAyuda.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnAyuda.setForeground(new java.awt.Color(102, 102, 102));
+        btnAyuda.setForeground(new java.awt.Color(0, 0, 102));
         btnAyuda.setText("Ayuda");
         btnAyuda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -326,7 +327,7 @@ public void llenadodetablas(){
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+//metodo de guardar todos los datos que se ingresen a la base de datos
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         Perfil perfilesInsertar = new Perfil();
         PerfilDAO perfilDAO = new PerfilDAO();
@@ -355,7 +356,7 @@ public void llenadodetablas(){
         }
         llenadodetablas();
     }//GEN-LAST:event_btnGuardarActionPerformed
-
+/// metodo que modifica los datos guardados en la bd
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         PerfilDAO perfilDAO = new PerfilDAO();
         Perfil perfilesModificar = new Perfil();
@@ -378,7 +379,7 @@ public void llenadodetablas(){
         llenadodetablas();
         limpiar();                 
     }//GEN-LAST:event_btnModificarActionPerformed
-
+// metodo de elimiar los datos en la bd a elegir un perfil ya ingresado
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         Perfil perfilEliminar = new Perfil();
         PerfilDAO perfilDAO = new PerfilDAO();
@@ -391,11 +392,11 @@ public void llenadodetablas(){
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-         buscarperfil();
+         buscarperfil();    //metodo que busca el perfil ingresado en la base de datos
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAyudaActionPerformed
-
+     /// metodo para ejecutar la ayuda que es una guia para el mantenimiento perfil
         try {
             if ((new File("src\\main\\java\\seguridad\\ayuda\\AyudaMantenimientoPerfil.chm")).exists()) {
                 Process p = Runtime

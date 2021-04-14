@@ -10,6 +10,9 @@ import javax.swing.UIManager;
     @author Diego Vásquez
  */
 public class MDIFinanzas extends javax.swing.JFrame {
+private Mantenimiento_Banco formMantenimiento_Banco;//llamado a la ventana Mantenimiento Banco
+private Mantenimiento_TipoPersona formMantenimiento_TipoPersona;//llamado a la ventana Mantenimiento Tipo Persona
+private Mantenimiento_Moneda formMantenimiento_Moneda;//llamado a la ventana Mantenimiento Moneda 
 
     public MDIFinanzas() {
         initComponents();
@@ -19,71 +22,157 @@ public class MDIFinanzas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDesktopPane1 = new javax.swing.JDesktopPane()
+        JDesktopFinanzas = new javax.swing.JDesktopPane()
         ;
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
-        jMenu6 = new javax.swing.JMenu();
+        JMenuBarFinanzas = new javax.swing.JMenuBar();
+        JMenuArchivo = new javax.swing.JMenu();
+        JMenuCatalogos = new javax.swing.JMenu();
+        JMenuCatalogoContabilidad = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        JMenuCatalogoBancos = new javax.swing.JMenu();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuItem9 = new javax.swing.JMenuItem();
+        jMenuItem10 = new javax.swing.JMenuItem();
+        JMenuProcesos = new javax.swing.JMenu();
+        JMenuInformes = new javax.swing.JMenu();
+        JMenuHerramientas = new javax.swing.JMenu();
+        JMenuAyuda = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Modulo Finanzas [ip] [user]");
         setResizable(false);
 
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        JDesktopFinanzas.setBackground(new java.awt.Color(60, 80, 40));
+
+        javax.swing.GroupLayout JDesktopFinanzasLayout = new javax.swing.GroupLayout(JDesktopFinanzas);
+        JDesktopFinanzas.setLayout(JDesktopFinanzasLayout);
+        JDesktopFinanzasLayout.setHorizontalGroup(
+            JDesktopFinanzasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1350, Short.MAX_VALUE)
         );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        JDesktopFinanzasLayout.setVerticalGroup(
+            JDesktopFinanzasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 701, Short.MAX_VALUE)
         );
 
-        jMenu1.setText("Archivo");
-        jMenu1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jMenuBar1.add(jMenu1);
+        JMenuArchivo.setText("Archivo");
+        JMenuArchivo.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        JMenuBarFinanzas.add(JMenuArchivo);
 
-        jMenu2.setText("Catálogos");
-        jMenu2.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jMenuBar1.add(jMenu2);
+        JMenuCatalogos.setText("Catálogos");
+        JMenuCatalogos.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
 
-        jMenu3.setText("Procesos");
-        jMenu3.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jMenuBar1.add(jMenu3);
+        JMenuCatalogoContabilidad.setText("Catálogos Contabilidad");
 
-        jMenu4.setText("Informes");
-        jMenu4.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jMenuBar1.add(jMenu4);
+        jMenuItem1.setText("Mantenimiento de Clasificación de Cuentas");
+        JMenuCatalogoContabilidad.add(jMenuItem1);
 
-        jMenu5.setText("Herramientas");
-        jMenu5.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jMenuBar1.add(jMenu5);
+        jMenuItem3.setText("Mantenimiento de Cuentas Contables");
+        JMenuCatalogoContabilidad.add(jMenuItem3);
 
-        jMenu6.setText("Ayuda");
-        jMenu6.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jMenuBar1.add(jMenu6);
+        jMenuItem2.setText("Mantenimiento de Periodo Fiscal");
+        JMenuCatalogoContabilidad.add(jMenuItem2);
 
-        setJMenuBar(jMenuBar1);
+        jMenuItem4.setText("Mantenimiento de Tipo de Asiento Contable");
+        JMenuCatalogoContabilidad.add(jMenuItem4);
+
+        JMenuCatalogos.add(JMenuCatalogoContabilidad);
+
+        JMenuCatalogoBancos.setText("Catálogos Bancos");
+
+        jMenuItem5.setText("Mantenimiento de Tipo de Transacción");
+        JMenuCatalogoBancos.add(jMenuItem5);
+
+        jMenuItem6.setText("Mantenimiento de Cuentas Bancarias");
+        JMenuCatalogoBancos.add(jMenuItem6);
+
+        jMenuItem7.setText("Mantenimiento de Cuentahabientes");
+        JMenuCatalogoBancos.add(jMenuItem7);
+
+        jMenuItem8.setText("Mantenimiento de Bancos");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
+        JMenuCatalogoBancos.add(jMenuItem8);
+
+        jMenuItem9.setText("Mantenimiento de Divisas");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
+        JMenuCatalogoBancos.add(jMenuItem9);
+
+        jMenuItem10.setText("Mantenimiento de Persona Bancaria");
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem10ActionPerformed(evt);
+            }
+        });
+        JMenuCatalogoBancos.add(jMenuItem10);
+
+        JMenuCatalogos.add(JMenuCatalogoBancos);
+
+        JMenuBarFinanzas.add(JMenuCatalogos);
+
+        JMenuProcesos.setText("Procesos");
+        JMenuProcesos.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        JMenuBarFinanzas.add(JMenuProcesos);
+
+        JMenuInformes.setText("Informes");
+        JMenuInformes.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        JMenuBarFinanzas.add(JMenuInformes);
+
+        JMenuHerramientas.setText("Herramientas");
+        JMenuHerramientas.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        JMenuBarFinanzas.add(JMenuHerramientas);
+
+        JMenuAyuda.setText("Ayuda");
+        JMenuAyuda.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        JMenuBarFinanzas.add(JMenuAyuda);
+
+        setJMenuBar(JMenuBarFinanzas);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1)
+            .addComponent(JDesktopFinanzas)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1)
+            .addComponent(JDesktopFinanzas)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+    //Banco
+        formMantenimiento_Banco = new Mantenimiento_Banco();
+        JDesktopFinanzas.add(formMantenimiento_Banco);
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+    //Tipo de persona 
+    formMantenimiento_TipoPersona = new Mantenimiento_TipoPersona();
+        JDesktopFinanzas.add(formMantenimiento_TipoPersona);
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
+
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+    // Moneda
+    formMantenimiento_Moneda = new Mantenimiento_Moneda();
+        JDesktopFinanzas.add(formMantenimiento_Moneda);
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     public static void main(String args[]) {
        
@@ -102,13 +191,25 @@ public class MDIFinanzas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane jDesktopPane1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JDesktopPane JDesktopFinanzas;
+    private javax.swing.JMenu JMenuArchivo;
+    private javax.swing.JMenu JMenuAyuda;
+    private javax.swing.JMenuBar JMenuBarFinanzas;
+    private javax.swing.JMenu JMenuCatalogoBancos;
+    private javax.swing.JMenu JMenuCatalogoContabilidad;
+    private javax.swing.JMenu JMenuCatalogos;
+    private javax.swing.JMenu JMenuHerramientas;
+    private javax.swing.JMenu JMenuInformes;
+    private javax.swing.JMenu JMenuProcesos;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem10;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     // End of variables declaration//GEN-END:variables
 }

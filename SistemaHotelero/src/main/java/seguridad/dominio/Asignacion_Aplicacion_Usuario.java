@@ -11,14 +11,14 @@ package seguridad.dominio;
  */
 public class Asignacion_Aplicacion_Usuario {
 
-        private String Codigo_Usuario;
+    private String Codigo_Usuario;
     private String Codigo_Aplicacion;
-    private String Ingresar;
+    private int Ingresar;
     private String Consultar;
     private String Modificar;
     private String Eliminar;
     private String Imprimir;
-    
+
     public String getCodigo_Usuario() {
         return Codigo_Usuario;
     }
@@ -35,11 +35,11 @@ public class Asignacion_Aplicacion_Usuario {
         this.Codigo_Aplicacion = Codigo_Aplicacion;
     }
 
-    public String getIngresar() {
+    public int getIngresar() {
         return Ingresar;
     }
 
-    public void setIngresar(String Ingresar) {
+    public void setIngresar(int Ingresar) {
         this.Ingresar = Ingresar;
     }
 

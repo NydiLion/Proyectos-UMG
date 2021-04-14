@@ -14,6 +14,8 @@ import javax.swing.UIManager;
  */
 public class MDIHoteleria extends javax.swing.JFrame {
 
+    private Mantenimiento_Ama_De_Llaves formMantenimiento_Ama_De_Llaves;
+    private Mantenimiento_habitaciones formMantenimiento_habitaciones;
     /**
      * Creates new form MDIHoteleria
      */
@@ -34,6 +36,8 @@ public class MDIHoteleria extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
@@ -63,6 +67,23 @@ public class MDIHoteleria extends javax.swing.JFrame {
 
         jMenu2.setText("Catálogos");
         jMenu2.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+
+        jMenuItem1.setText("Mantenimiento Ama de Llaves");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem1);
+
+        jMenuItem2.setText("Mantenimiento Habitaciones");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem2);
+
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Procesos");
@@ -94,11 +115,21 @@ public class MDIHoteleria extends javax.swing.JFrame {
             .addComponent(jDesktopPane1)
         );
 
-        getAccessibleContext().setAccessibleName("Modulo de Hotelería [ip] [user]");
-
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        formMantenimiento_Ama_De_Llaves = new Mantenimiento_Ama_De_Llaves();
+        formMantenimiento_Ama_De_Llaves.setVisible(true);
+        jDesktopPane1.add(formMantenimiento_Ama_De_Llaves);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        formMantenimiento_habitaciones = new Mantenimiento_habitaciones();
+        formMantenimiento_habitaciones.setVisible(true);
+        jDesktopPane1.add(formMantenimiento_habitaciones);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -128,5 +159,7 @@ public class MDIHoteleria extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     // End of variables declaration//GEN-END:variables
 }

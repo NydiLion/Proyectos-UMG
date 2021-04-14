@@ -108,23 +108,20 @@ public class CambioC extends javax.swing.JFrame {
 
     @SuppressWarnings("deprecation")
     private void btncambiocontraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncambiocontraseñaActionPerformed
-        // TODO add your handling code here:
-
-
-         if (txtUsuario.getText().trim().isEmpty() || txtContraseña.getText().trim().isEmpty()) {
+        if (txtUsuario.getText().trim().isEmpty() || txtContraseña.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "NO PUEDEN HABER CAMPOS VACIOS", "ERROR", JOptionPane.ERROR_MESSAGE);
-
-            //update de usuarioDAO y Usuario ...
-                UsuarioDAO actualizacionDAO = new UsuarioDAO();
-                Usuario AActualizar = new Usuario();
-                 AActualizar.setUser_usuario(txtUsuario.getText());
-                 AActualizar.setPassword_usuario(txtContraseña.getText());
-                 actualizacionDAO.update(AActualizar);
- 
-                
-                    
-                    
-     }          
+        } else {
+            UsuarioDAO usuarioDao = new UsuarioDAO();
+            Usuario usuarioCambioPassword = new Usuario();
+            usuarioCambioPassword.setId_usuario(Integer.parseInt(txtUsuario.getText()));
+            usuarioCambioPassword.setPassword_usuario(txtContraseña.getText());
+            usuarioDao.update(usuarioCambioPassword);
+            JOptionPane.showMessageDialog(null, "Modificación Exitosa");
+            this.dispose();
+            Login login = new Login();
+            login.setVisible(true);
+            
+        }       
     }//GEN-LAST:event_btncambiocontraseñaActionPerformed
 
     /**

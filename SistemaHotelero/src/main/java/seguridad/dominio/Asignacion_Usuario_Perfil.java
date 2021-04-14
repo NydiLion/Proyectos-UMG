@@ -14,6 +14,8 @@ public class Asignacion_Usuario_Perfil {
      
    private String PK_id_usuario;
    private String  PK_id_perfil;
+   
+   //Creamos los setter y Getter
 
     public String getPK_id_usuario() {
         return PK_id_usuario;
@@ -30,6 +32,8 @@ public class Asignacion_Usuario_Perfil {
     public void setPK_id_perfil(String PK_id_perfil) {
         this.PK_id_perfil = PK_id_perfil;
     }
+    
+    //Creamos el ToString de los Setter and getter
 
     @Override
     public String toString() {

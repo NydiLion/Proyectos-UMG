@@ -20,10 +20,10 @@ import seguridad.dominio.Aplicacion;
 public class UsuarioDAO extends Conexion {
 
     private static final String SQL_SELECT = "SELECT * FROM tbl_usuario";
-    private static final String SQL_INSERT = "INSERT INTO tbl_usuario(PK_id_usuario, nombre_usuario, apellido_usuario, username_usuario, password_usuario, correo_usuarios, cambio_password, estado_usuario, ultima_conexion) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
-    private static final String SQL_UPDATE = "UPDATE tbl_usuario SET PK_id_usuario=?, nombre_usuario=?, apellido_usuario=?, username_usuario=?, password_usuario=?, correo_usuarios=?, cambio_password=?, estado_usuario=?, ultima_conexion=? WHERE PK_id_usuario = ?";
+    private static final String SQL_INSERT = "INSERT INTO tbl_usuario(PK_id_usuario, nombre_usuario, apellido_usuario, username_usuario, password_usuario, correo_usuario, cambio_password, estado_usuario, ultima_conexion) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    private static final String SQL_UPDATE = "UPDATE tbl_usuario SET PK_id_usuario=?, nombre_usuario=?, apellido_usuario=?, username_usuario=?, password_usuario=?, correo_usuario=?, cambio_password=?, estado_usuario=?, ultima_conexion=? WHERE PK_id_usuario = ?";
     private static final String SQL_DELETE = "DELETE FROM tbl_usuario WHERE PK_id_usuario=?";
-    private static final String SQL_QUERY = "SELECT PK_id_usuario, nombre_usuario, apellido_usuario, username_usuario, password_usuario, correo_usuarios, cambio_password, estado_usuario, ultima_conexion FROM tbl_usuario WHERE PK_id_usuario = ?";
+    private static final String SQL_QUERY = "SELECT PK_id_usuario, nombre_usuario, apellido_usuario, username_usuario, password_usuario, correo_usuario, cambio_password, estado_usuario, ultima_conexion FROM tbl_usuario WHERE username_usuario = ?";
 
     Conexion conectar = new Conexion();
     Connection conn = null;
@@ -47,7 +47,7 @@ public class UsuarioDAO extends Conexion {
                 String apellido = rs.getString("apellido_usuario");
                 String username = rs.getString("username_usuario");
                 String pass = rs.getString("password_usuario");
-                var correo = rs.getString("correo_usuarios");
+                var correo = rs.getString("correo_usuario");
                 int cambio = rs.getInt("cambio_password");
                 int estado = rs.getInt("estado_usuario");
                 String ultima = rs.getString("ultima_conexion");
@@ -87,7 +87,7 @@ public class UsuarioDAO extends Conexion {
             conn = Conexion.getConnection();
             System.out.println("Ejecutando query:" + SQL_QUERY);
             stmt = conn.prepareStatement(SQL_QUERY);
-            stmt.setInt(1, usuario.getId_usuario());
+            stmt.setString(1, usuario.getUser_usuario());
             rs = stmt.executeQuery();
             while (rs.next()) {
                 int id_usuario = rs.getInt("PK_id_usuario");
@@ -95,7 +95,7 @@ public class UsuarioDAO extends Conexion {
                 String apellido_usuario = rs.getString("apellido_usuario");
                 String user_usuario = rs.getString("username_usuario");
                 String password_usuario = rs.getString("password_usuario");
-                String correo_usuario = rs.getString("correo_usuarios");
+                String correo_usuario = rs.getString("correo_usuario");
                 int cambio_contrasena = rs.getInt("cambio_password");
                 int estado_usuario = rs.getInt("estado_usuario");
                 String ultima_conexion = rs.getString("ultima_conexion");

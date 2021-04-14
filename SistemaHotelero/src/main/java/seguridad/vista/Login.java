@@ -10,6 +10,7 @@ import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
 import seguridad.datos.UsuarioDAO;
 import seguridad.dominio.Usuario;
+import seguridad.datos.PermisosDAO;
 
 /**
  *
@@ -138,28 +139,57 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_txtUsuarioActionPerformed
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        // TODO add your handling code here:
-
         if (txtUsuario.getText().trim().isEmpty() || txtContraseña.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "NO PUEDEN HABER CAMPOS VACIOS", "ERROR", JOptionPane.ERROR_MESSAGE);
         } else {
             try {
 
                 //viene de Uusuario y UsuarioDAO ...
-
                 seguridad.dominio.Usuario usuarioAConsultar = new seguridad.dominio.Usuario();
                 UsuarioDAO usuarioDAO = new UsuarioDAO();
-                usuarioAConsultar.setUser_usuario(txtUsuario.getText().trim());
+                usuarioAConsultar.setUser_usuario((txtUsuario.getText()));
+
+                System.out.println(usuarioAConsultar.toString());
                 // Recuperación de información a través de otro objeto
                 usuarioAConsultar = usuarioDAO.query(usuarioAConsultar);
 
+//                System.out.println("regresa " + usuarioAConsultar.toString());
+//
+//                System.out.println("regresa contraseña " + txtContraseña.getText());
+//
+//                System.out.println("regresa objeto contraseña " + usuarioAConsultar.getPassword_usuario());
+//
+//                System.out.println("regresa usuario " + txtUsuario.getText());
+//
+//                System.out.println("regresa objeto usuario " + usuarioAConsultar.getId_usuario());
+                //**********************************************************************************************************************************************************************           
                 if (txtContraseña.getText().equals(usuarioAConsultar.getPassword_usuario()) && txtUsuario.getText().equals(usuarioAConsultar.getUser_usuario())) {
+                    //  if (txtUsuario.getText().equals(Integer.toString(usuarioAConsultar.getId_usuario()))) {
+                    // if (txtContraseña.getText().equals(usuarioAConsultar.getPassword_usuario())){
                     JOptionPane.showMessageDialog(null, "Bienvenido\n", "Mensaje de bienvenida", JOptionPane.INFORMATION_MESSAGE);
+
+
+                    try {
+                        MDI_Sistema menuGeneral = new MDI_Sistema();
+                        menuGeneral.setVisible(true);
+                        this.dispose();
+
+                    } catch (Exception e) {
+                    }
 
                     MDI_Components menuGeneral = new  MDI_Components();
                   //  menuGeneral.setVisible(true);
+                  
+                    //----
+                    PermisosDAO permisos = new PermisosDAO();
+                    permisos.setNombreUsuario(usuarioAConsultar.getNombre_usuario());
+                    //----
+                    
+                    
                     this.dispose();
 
+
+                    JOptionPane.showMessageDialog(null, permisos.getNombreUsuario());
                 } else {
                     JOptionPane.showMessageDialog(this, "ERROR AL ENCONTRAR USUARIO O CONTRASEÑA", "ERROR", JOptionPane.ERROR_MESSAGE);
                     txtContraseña.setText("");
@@ -181,9 +211,10 @@ public class Login extends javax.swing.JFrame {
 
     private void btncambiodecontraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncambiodecontraActionPerformed
         // TODO add your handling code here:
-         Usuario frmRecupera = new Usuario();
-      //          frmRecupera.setVisible(true);
-        
+        CambioC menuGeneral = new CambioC();
+        menuGeneral.setVisible(true);
+        this.dispose();
+
     }//GEN-LAST:event_btncambiodecontraActionPerformed
 
     /**
@@ -244,8 +275,6 @@ public class Login extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
-
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

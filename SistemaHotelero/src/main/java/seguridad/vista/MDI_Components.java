@@ -14,14 +14,4 @@ public class MDI_Components {
         InetAddress address = InetAddress.getLocalHost();
         return address.getHostAddress();
     }
-
-    public MDI_Components() {
-
-    }
-
-    Usuario mod;
-    
-    public MDI_Components(Usuario mod) {
-        this.mod = mod;
-    }
 }

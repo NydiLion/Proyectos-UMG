@@ -26,8 +26,11 @@ public class Mantenimiento_Aplicacion extends javax.swing.JInternalFrame {
     /**
      * Creates new form MantenimientoAplicacion
      */
+    int codigoAplicacion=20;
+    
     public Mantenimiento_Aplicacion() {
         initComponents();
+        int codigoAplicacion = 25;
         //cargarCombobox.query2(cbxModulo);
         grupoDeRadios = new ButtonGroup();
         grupoDeRadios.add(btnRadioActivo);
