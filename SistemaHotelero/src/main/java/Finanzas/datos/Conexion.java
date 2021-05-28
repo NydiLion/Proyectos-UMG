@@ -13,6 +13,8 @@ public class Conexion {
     private static final String JDBC_PASS = "";
 
 
+
+
     public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PASS);
     }
